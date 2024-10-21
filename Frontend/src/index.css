@@ -1,0 +1,264 @@
+/* Navbar container */
+.navbar {
+  background-color: #333;
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: start;
+}
+
+.nav-ul li {
+  margin: 0 15px;
+}
+
+.nav-right{
+  display: flex;
+  justify-content: right;
+  text-align: center;
+  margin: 6px;
+}
+
+.nav-logo{
+  width: 50px;
+  border-radius: 50%;
+}
+
+.nav-ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s;
+}
+
+.nav-ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+.nav-ul li a.active {
+  background-color: #04aa6d;
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .nav-ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-ul li {
+    margin-bottom: 10px;
+  }
+}
+
+.footer {
+  background-color: #333; /* Dark background */
+  color: white; /* White text */
+  padding: 20px 0; /* Padding around the footer */
+  text-align: center; /* Center the text */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 50px; /* Add space above the footer */
+  font-family: Arial, sans-serif;
+}
+
+/* Footer text */
+.footer p {
+  margin: 0; /* Remove default margin */
+  font-size: 14px; /* Font size */
+  color: #ccc; /* Lighter text color for secondary information */
+}
+
+/* Footer links container */
+.footer-links {
+  margin-top: 10px; /* Space between text and links */
+}
+
+/* Footer links */
+.footer-links a {
+  color: white; /* White text color */
+  text-decoration: none; /* Remove underline */
+  margin: 0 15px; /* Space between links */
+  font-size: 14px; /* Font size */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for links */
+.footer-links a:hover {
+  color: #04aa6d; /* Change color on hover */
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .footer-links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically on smaller screens */
+    align-items: center;
+  }
+
+  .footer-links a {
+    margin: 5px 0; /* Space between vertically stacked links */
+  }
+}
+
+/* signup */
+
+/* Signup page container */
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 80px auto; /* Center the form */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  font-family: Arial, sans-serif;
+}
+
+/* Form header */
+.signup-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form group container */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Form labels */
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Focus effect for input fields */
+.form-group input:focus {
+  border-color: #04aa6d; /* Green border on focus */
+}
+
+/* Sign up button */
+.signup-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #04aa6d; /* Green background */
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for button */
+.signup-btn:hover {
+  background-color: #038c58; /* Darker green on hover */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .signup-container {
+    padding: 15px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+  }
+
+  .signup-btn {
+    font-size: 14px;
+  }
+}
+
+/* Products CSS*/
+.products {
+  margin-top: 80px;
+}
+
+
+/* login  */
+
+/* Style for the login container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Style for the login box */
+.login-box {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+/* Input group styles */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #45a049;
+}
+
