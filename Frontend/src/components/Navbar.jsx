@@ -4,6 +4,7 @@ import NavLogo from "../images/NavLogo.png"
 
 const Navbar = () => {
   const auth = localStorage.getItem("user");
+  console.log(auth)
   const navigate = useNavigate();
   const logOut = () => {
     localStorage.clear();

@@ -16,7 +16,8 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: start;
+  position: relative;
+  right: 30rem;
 }
 
 .nav-ul li {
@@ -25,9 +26,9 @@
 
 .nav-right{
   display: flex;
-  justify-content: right;
   text-align: center;
-  margin: 6px;
+  position: relative;
+  right: 1.5rem;
 }
 
 .nav-logo{
@@ -201,8 +202,8 @@
 }
 
 /* Products CSS*/
-.products {
-  margin-top: 80px;
+.products, .Add-Products {
+  margin-top: 10rem;
 }
 
 
@@ -246,7 +247,7 @@
   font-size: 16px;
 }
 
-.login-btn {
+.login-btn, .addProduct {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -261,4 +262,68 @@
 .login-btn:hover {
   background-color: #45a049;
 }
+
+/* Add Products  */
+
+.Add-Products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 6.5rem auto;
+}
+
+.Add-Products h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.Add-Products form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inputBox {
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.inputBox:focus {
+  border-color: #007bff;
+}
+
+.inputBox::placeholder {
+  color: #999;
+}
+
+/* products */
+.products{
+  text-align: center;  
+}
+
+.products ul li{
+  display: inline-block;
+  border: 2px solid green;
+  width: 150px;
+  padding: 5px;
+}
+
+.products ul{
+  margin: 0;
+}
+
+
+
 
