@@ -11,27 +11,38 @@
   align-items: center;
 }
 
+.search-box{
+  width: 200px;
+  padding:10px 12px;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid rgb(35, 34, 34);
+  margin-bottom: 2rem;
+}
+
 .nav-ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   position: relative;
+  justify-content: center;
+  align-items: center;
   right: 30rem;
 }
 
 .nav-ul li {
-  margin: 0 15px;
+  margin: 0 12px;
 }
 
-.nav-right{
+.nav-right {
   display: flex;
   text-align: center;
   position: relative;
   right: 1.5rem;
 }
 
-.nav-logo{
+.nav-logo {
   width: 50px;
   border-radius: 50%;
 }
@@ -67,67 +78,61 @@
 }
 
 .footer {
-  background-color: #333; /* Dark background */
-  color: white; /* White text */
-  padding: 20px 0; /* Padding around the footer */
-  text-align: center; /* Center the text */
+  background-color: #333; 
+  color: white; 
+  padding: 20px 0; 
+  text-align: center; 
   position: relative;
   bottom: 0;
   width: 100%;
-  margin-top: 50px; /* Add space above the footer */
+  margin-top: 50px; 
   font-family: Arial, sans-serif;
 }
 
 /* Footer text */
 .footer p {
-  margin: 0; /* Remove default margin */
-  font-size: 14px; /* Font size */
-  color: #ccc; /* Lighter text color for secondary information */
+  margin: 0; 
+  font-size: 14px; 
+  color: #ccc; 
 }
 
-/* Footer links container */
 .footer-links {
-  margin-top: 10px; /* Space between text and links */
+  margin-top: 10px; 
 }
 
-/* Footer links */
 .footer-links a {
-  color: white; /* White text color */
-  text-decoration: none; /* Remove underline */
-  margin: 0 15px; /* Space between links */
-  font-size: 14px; /* Font size */
-  transition: color 0.3s ease; /* Smooth hover effect */
+  color: white; 
+  text-decoration: none; 
+  margin: 0 15px; 
+  font-size: 14px; 
+  transition: color 0.3s ease;
 }
 
-/* Hover effect for links */
 .footer-links a:hover {
-  color: #04aa6d; /* Change color on hover */
+  color: #04aa6d; 
 }
 
-/* Responsive for small screens */
 @media (max-width: 600px) {
   .footer-links {
     display: flex;
-    flex-direction: column; /* Stack links vertically on smaller screens */
+    flex-direction: column; 
     align-items: center;
   }
 
   .footer-links a {
-    margin: 5px 0; /* Space between vertically stacked links */
+    margin: 5px 0; 
   }
 }
 
 /* signup */
-
-/* Signup page container */
 .signup-container {
   width: 100%;
   max-width: 400px;
-  margin: 80px auto; /* Center the form */
+  margin: 80px auto; 
   padding: 20px;
-  background-color: #f9f9f9; /* Light background color */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  background-color: #f9f9f9; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   font-family: Arial, sans-serif;
 }
 
@@ -138,12 +143,10 @@
   margin-bottom: 20px;
 }
 
-/* Form group container */
 .form-group {
   margin-bottom: 20px;
 }
 
-/* Form labels */
 .form-group label {
   display: block;
   font-size: 14px;
@@ -151,7 +154,6 @@
   margin-bottom: 5px;
 }
 
-/* Input fields */
 .form-group input {
   width: 100%;
   padding: 10px;
@@ -163,16 +165,14 @@
   transition: border-color 0.3s;
 }
 
-/* Focus effect for input fields */
 .form-group input:focus {
-  border-color: #04aa6d; /* Green border on focus */
+  border-color: #04aa6d; 
 }
 
-/* Sign up button */
 .signup-btn {
   width: 100%;
   padding: 10px;
-  background-color: #04aa6d; /* Green background */
+  background-color: #04aa6d; 
   color: white;
   font-size: 16px;
   border: none;
@@ -183,7 +183,7 @@
 
 /* Hover effect for button */
 .signup-btn:hover {
-  background-color: #038c58; /* Darker green on hover */
+  background-color: #038c58; 
 }
 
 /* Responsive design */
@@ -202,14 +202,14 @@
 }
 
 /* Products CSS*/
-.products, .Add-Products {
+.products,
+.Add-Products,
+.update-product {
   margin-top: 10rem;
 }
 
-
 /* login  */
 
-/* Style for the login container */
 .login-container {
   display: flex;
   justify-content: center;
@@ -218,7 +218,6 @@
   background-color: #f0f0f0;
 }
 
-/* Style for the login box */
 .login-box {
   background-color: white;
   padding: 30px;
@@ -228,7 +227,6 @@
   text-align: center;
 }
 
-/* Input group styles */
 .input-group {
   margin-bottom: 20px;
 }
@@ -247,8 +245,10 @@
   font-size: 16px;
 }
 
-.login-btn, .addProduct {
-  background-color: #4CAF50;
+.login-btn,
+.addProduct,
+.updateProduct {
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -265,7 +265,8 @@
 
 /* Add Products  */
 
-.Add-Products {
+.Add-Products,
+.update-product {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -278,13 +279,15 @@
   margin: 6.5rem auto;
 }
 
-.Add-Products h1 {
+.Add-Products,
+.update-product h1 {
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
 }
 
-.Add-Products form {
+.Add-Products,
+.update-product form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -298,6 +301,7 @@
   border-radius: 4px;
   outline: none;
   transition: border 0.3s ease;
+  width: 94%;
 }
 
 .inputBox:focus {
@@ -309,21 +313,17 @@
 }
 
 /* products */
-.products{
-  text-align: center;  
+.products {
+  text-align: center;
 }
 
-.products ul li{
+.products ul li {
   display: inline-block;
   border: 2px solid green;
   width: 150px;
   padding: 5px;
 }
 
-.products ul{
+.products ul {
   margin: 0;
 }
-
-
-
-

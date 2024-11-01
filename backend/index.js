@@ -33,20 +33,20 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.post("/add-product", async(req, res) => {
+app.post("/add-product", async (req, res) => {
   let product = await new Product(req.body);
   let result = await product.save();
   res.send(result);
 });
 
-app.get("/products", async(req, res) =>{
+app.get("/products", async (req, res) => {
   let products = await Product.find();
-  if(products.length>0){
+  if (products.length > 0) {
     res.send(products);
-  }else{
-    res.send("result :","No products Found");
+  } else {
+    res.send("result :", "No products Found");
   }
-})
+});
 
 app.delete("/product/:id", async (req, res) => {
   try {
@@ -57,6 +57,36 @@ app.delete("/product/:id", async (req, res) => {
   }
 });
 
+app.get("/product/:id", async (req, res) => {
+  let result = await Product.find({ _id: req.params.id });
+  if (result) {
+    res.send(result);
+  } else {
+    res.send({ result: "No record Found." });
+  }
+});
+
+app.put("/product/:id", async (req, res) => {
+  let result = await Product.updateOne(
+    { _id: req.params.id },
+    {
+      $set: req.body,
+    }
+  );
+
+  res.send(result);
+});
+
+app.get("/search/:key", async (req, res) => {
+  let result = await Product.find({
+    $or: [
+      { name: { $regex: req.params.key } },
+      { company: { $regex: req.params.key } },
+      { category: { $regex: req.params.key } },
+    ],
+  });
+  res.send(result);
+});
 
 const PORT = 3000;
 

@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavLogo from "../images/NavLogo.png"
+import NavLogo from "../images/NavLogo.png";
 
 const Navbar = () => {
   const auth = localStorage.getItem("user");
-  console.log(auth)
+  console.log(auth);
   const navigate = useNavigate();
   const logOut = () => {
     localStorage.clear();
     navigate("/signup");
   };
+
   return (
     <div className="navbar">
-      <img src={NavLogo} alt="nav-logo"  className="nav-logo"/>
+      <Link to="/">
+        <img src={NavLogo} alt="nav-logo" className="nav-logo" />
+      </Link>
+
       {auth ? (
         <ul className="nav-ul">
           <li>

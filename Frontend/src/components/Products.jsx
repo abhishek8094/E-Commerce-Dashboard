@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -22,13 +23,36 @@ const Products = () => {
 
     result = await result.json();
     if (result) {
-        getProducts();
+      getProducts();
     }
+  };
+
+  const searchHandler = async (event) => {
+    let key = event.target.value;
+
+    if(key){
+      let result = await fetch(`http://localhost:3000/search/${key}`);
+      result = await result.json();
+      console.log(result);
+  
+      if (result) {
+        setProducts(result);
+      }
+    }else{
+      getProducts();
+    }
+    
   };
 
   return (
     <div className="products">
       <h1>Products list</h1>
+      <input
+        type="text"
+        placeholder="search the product"
+        className="search-box"
+        onChange={searchHandler}
+      />
       <ul>
         <li>S. No.</li>
         <li>Name</li>
@@ -36,17 +60,29 @@ const Products = () => {
         <li>Category</li>
         <li>Operation</li>
       </ul>
-      {products.map((product, idx) => (
-        <ul key={idx}>
-          <li>{idx}</li>
-          <li>{product.name}</li>
-          <li>$ {product.price}</li>
-          <li>{product.Category}</li>
-          <li>
-            <button onClick={() => deleteProduct(product._id)}>Delete</button>
-          </li>
-        </ul>
-      ))}
+      {products.length > 0 ? (
+        products.map((product, idx) => (
+          <ul key={idx}>
+            <li>{idx + 1}</li>
+            <li>{product.name}</li>
+            <li>$ {product.price}</li>
+            <li>{product.Category}</li>
+            <li>
+              <Link to={"/update/" + product._id}>
+                <button>Update</button>
+              </Link>
+              <button
+                onClick={() => deleteProduct(product._id)}
+                style={{ marginLeft: "4px" }}
+              >
+                Delete
+              </button>
+            </li>
+          </ul>
+        ))
+      ) : (
+        <h1>No Result found</h1>
+      )}
     </div>
   );
 };

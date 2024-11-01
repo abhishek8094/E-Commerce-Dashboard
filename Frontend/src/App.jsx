@@ -11,20 +11,22 @@ import PrivateComponent from "./components/PrivateComponent";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route element={<PrivateComponent />}>
-          <Route path="/" element={<Products />} />
-          <Route path="/add" element={<AddProducts />} />
-          <Route path="/update" element={<UpdateProducts />} />
-          <Route path="/profile" element={<Profile />} />
-        </Route>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div style={{overflow:"hidden"}}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route element={<PrivateComponent />}>
+            <Route path="/" element={<Products />} />
+            <Route path="/add" element={<AddProducts />} />
+            <Route path="/update/:id" element={<UpdateProducts />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
