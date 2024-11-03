@@ -15,7 +15,7 @@ app.post("/register", async (req, res) => {
   let result = await user.save();
   result = result.toObject();
   delete result.password;
-  Jwt.sign({ result }, jwtKey, { expiresIn: "2h" }, (error, token) => {
+  Jwt.sign({ result }, jwtKey, { expiresIn: "2h" }, (err, token) => {
     if (err) {
       res.send({
         result: "something went wrong, Please trying after sometime",
@@ -31,10 +31,10 @@ app.get("/hello", (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  let user = await User.findOne(req.body).select("-password");
   if (req.body.password && req.body.email) {
+    let user = await User.findOne(req.body).select("-password");
     if (user) {
-      Jwt.sign({ user }, jwtKey, { expiresIn: "2h" }, (error, token) => {
+      Jwt.sign({ user }, jwtKey, { expiresIn: "2h" }, (err, token) => {
         if (err) {
           res.send({
             result: "something went wrong, Please trying after sometime",
@@ -94,7 +94,7 @@ app.put("/product/:id", async (req, res) => {
   res.send(result);
 });
 
-app.get("/search/:key", async (req, res) => {
+app.get("/search/:key", verifyToken, async (req, res) => {
   let result = await Product.find({
     $or: [
       { name: { $regex: req.params.key } },
@@ -104,6 +104,12 @@ app.get("/search/:key", async (req, res) => {
   });
   res.send(result);
 });
+
+function verifyToken(req, res, next){
+  const token = req.headers["authorization"];
+  console.warn("middleware called", token)
+  next();
+}
 
 const PORT = 3000;
 

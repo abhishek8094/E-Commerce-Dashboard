@@ -46,7 +46,8 @@ const SignUp = () => {
     });
 
     result = await result.json();
-    localStorage.setItem("user", JSON.stringify(result));
+    localStorage.setItem("user", JSON.stringify(result.auth));
+    localStorage.setItem("token", JSON.stringify(result.auth));
     console.log(result);
     if (result) {
       navigate("/");
