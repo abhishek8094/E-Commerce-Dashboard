@@ -13,6 +13,15 @@ app.post("/register", async (req, res) => {
   let result = await user.save();
   result = result.toObject();
   delete result.password;
+  Jwt.sign({ result }, jwtKey, { expiresIn: "2h" }, (error, token) => {
+    if (err) {
+      res.send({
+        result: "something went wrong, Please trying after sometime",
+      });
+    }
+    res.send({ result, auth: token });
+  });
+  
 });
 
 app.get("/hello", (req, res) => {
@@ -23,7 +32,14 @@ app.post("/login", async (req, res) => {
   if (req.body.password && req.body.email) {
     let user = await User.findOne(req.body).select("-password");
     if (user) {
-      res.send(user);
+      Jwt.sign({ user }, jwtKey, { expiresIn: "2h" }, (error, token) => {
+        if (err) {
+          res.send({
+            result: "something went wrong, Please trying after sometime",
+          });
+        }
+        res.send({ user, auth: token });
+      });
     } else {
       res.send({ result: "User not found" });
     }
@@ -76,7 +92,7 @@ app.put("/product/:id", async (req, res) => {
   res.send(result);
 });
 
-app.get("/search/:key", async (req, res) => {
+app.get("/search/:key", verifyToken, async (req, res) => {
   let result = await Product.find({
     $or: [
       { name: { $regex: req.params.key } },
@@ -86,6 +102,12 @@ app.get("/search/:key", async (req, res) => {
   });
   res.send(result);
 });
+
+function verifyToken(req, res, next){
+  const token = req.headers["authorization"];
+  console.warn("middleware called", token)
+  next();
+}
 
 const PORT = 3000;
 
